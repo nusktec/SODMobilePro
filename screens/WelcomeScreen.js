@@ -43,7 +43,6 @@ export default class WelcomeScreen extends Component<Props> {
         }, 3000)
     }
 
-
     render() {
         return (
             <View style={StyleSplash.container}>
