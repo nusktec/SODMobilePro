@@ -24,7 +24,7 @@ export default class WelcomeScreen extends Component<Props> {
 
         //check if logged in to go to home
         setTimeout(()=>{
-            Actions.dashboard();
+            Actions.replace('dashboard');
             // (async()=>{
             //     try {
             //         const value = await AsyncStorage.getItem(TEMP_ACC);
@@ -58,7 +58,7 @@ export default class WelcomeScreen extends Component<Props> {
                     }}>
                         Seeds Of Destiny
                     </Text>
-                    <Text style={{ 
+                    <Text style={{
                         textAlign: 'center',
                         fontSize: 13,
                         color: '#ff1c16',
