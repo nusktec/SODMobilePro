@@ -51,7 +51,7 @@ export default class LibraryScreen extends Component<Props> {
                     <View>
                         <YouTube
                             controls={2}
-                            apiKey='AIzaSyDkVP3ddux3_W1_QyzCXzpD66oreimkG1A'
+                            apiKey=''
                             playlistId={'UUrDg-KgwTtv88H32I4KEZcw'}   // The YouTube video ID
                             play={true}
                             loop={false}            // control whether the video should loop when ended
