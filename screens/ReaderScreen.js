@@ -177,9 +177,9 @@ export default class ReaderScreen extends Component<Props> {
                                   textAlign: 'justify',
                                   fontSize: 15,
                                   fontStyle: 'italic',
-                                  fontWeight: '200',
+                                  fontWeight: '800',
                                   lineHeight: 30,
-                                  color: TEXT_COLOR,
+                                  color: '#000',
                                   fontFamily: 'express'
                               }}/>
 

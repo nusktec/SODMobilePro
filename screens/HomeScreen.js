@@ -7,13 +7,13 @@
  */
 
 import React, {Component} from 'react';
-import {BackHandler, Dimensions, ScrollView, TouchableOpacity, View, NetInfo, Share} from 'react-native';
+import {BackHandler, Dimensions, NetInfo, ScrollView, Share, TouchableOpacity, View} from 'react-native';
 import {StyleSplash} from './../style/styling';
 import Headers from "./components/headers";
 import axios from 'axios';
-import {Button, Icon, Image, Text} from "react-native-elements";
+import {Icon, Image, Text} from "react-native-elements";
 import base64 from "react-native-base64";
-import {BG_COLOR, BG_COLOR2, COLOR2, Flavours2, TEXT_COLOR, TEXT_COLOR3} from "../style/styling";
+import {BG_COLOR, BG_COLOR2, COLOR2, Flavours2} from "../style/styling";
 import {getMonthLetter, marketLink} from './components/common';
 import {Actions} from 'react-native-router-flux';
 import SEED_CARD from './components/cardSeeds';
@@ -27,7 +27,7 @@ const DOMAIN = "http://dunamisgospel.org";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const netStatus = NetInfo.fetch()
+const netStatus = NetInfo.fetch();
 
 const place_holder = require('./../src/img/watch.jpg');
 const DUMMY_DATA = {
@@ -40,6 +40,7 @@ export default class HomeScreen extends Component<Props> {
     constructor(props) {
         super(props);
         this.state = {
+            isNetwork: true,
             loaded: false,
             sd: [DUMMY_DATA, DUMMY_DATA, DUMMY_DATA, DUMMY_DATA], //SOD data all in array and base64 encoded
             st: {}, //SOD today in objects (`created`,`introtext`,`fulltext`,`title`,`alias`)
@@ -50,21 +51,38 @@ export default class HomeScreen extends Component<Props> {
 
     //Initialize on mounted
     componentDidMount() {
+        this.main();
+        NetInfo.isConnected.addEventListener('connectionChange', () => {
+                this.main();
+            }
+        );
+
+    }
+
+    main = () => {
         try {
             //first load from db if not, use network
+            NetInfo.isConnected.fetch().then(isConnected => {
+                if (!isConnected) {
+                    Toast.show("Internet not connected.!!!");
+                    this.setState({
+                        isNetwork: false,
+                    });
+                } else {
+                    //Toast.show("Internet connected.!!! ")
+                    this.setState({
+                        isNetwork: true,
+                    });
+                    Toast.show("Content loading...");
+                    this.loadSOD();
+                    this.fetchTopImage();
+                }
 
-            this.loadSOD();
-            this.fetchTopImage();
+            });
         } catch (e) {
             Toast.show("Something went wrong, please try again...")
         }
         //check internet
-        if (netStatus === 'none' || netStatus === 'NONE') {
-            Toast.show("Internet not connected.!!!");
-        } else {
-            //Toast.show("Internet connected.!!! ")
-
-        }
     }
 
     //load today seeds
@@ -91,7 +109,9 @@ export default class HomeScreen extends Component<Props> {
                 this.setState({
                     topImage: obj.image
                 });
-            });
+            }).catch(err => {
+            console.log(err)
+        })
     };
 
     //filter and arrange today's sod
@@ -112,7 +132,7 @@ export default class HomeScreen extends Component<Props> {
                     <Headers icon={'monitor'} homeKey={() => {
                         //Invite button clicked / closed
                         BackHandler.exitApp();
-                    }} reload={true} btnReload={()=>{
+                    }} reload={true} btnReload={() => {
                         Actions.refresh({});
                     }}/>
                 </View>
@@ -179,6 +199,14 @@ export default class HomeScreen extends Component<Props> {
                             </Text>
                         </View>
                     </View>
+                </View>
+
+                <View style={this.state.isNetwork ? hidden : null}>
+                    <Text style={[{
+                        backgroundColor: '#ff022c',
+                        padding: 8,
+                        color: '#fff'
+                    }]}>Internet not connected.!!! </Text>
                 </View>
 
                 <View style={[{
@@ -288,7 +316,35 @@ export default class HomeScreen extends Component<Props> {
                                                 //Open reader mode
                                                 if (this.state.loaded) {
                                                     //Ready to read
-                                                    Actions.push("readMode", {data: d});
+                                                    let day = parseInt(new Date().getDate());  //Current Date
+                                                    let month = parseInt(new Date().getMonth() + 1); //Current Month
+                                                    let year = parseInt(new Date().getFullYear()); //Current Year
+
+                                                    let ww = base64.decode(d.created).split(" ")[0].split("-");
+
+                                                    let wday = parseInt(ww[2]);
+                                                    let wyear = parseInt(ww[0]);
+                                                    let wm = parseInt(ww[1]);
+
+                                                    if (year >= wyear) {
+                                                        //we in this year
+                                                        if (wm < month) {
+                                                            //we are still in the same month
+                                                            Actions.push("readMode", {data: d});
+                                                        } else {
+                                                            //the current month
+                                                            if (wday<=day && month===wm) {
+                                                                Actions.push("readMode", {data: d});
+                                                            }else {
+                                                                //the days of the month is ahead
+                                                                Toast.show("Not allowed to read future contents", Toast.SHORT);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        //last year contents
+                                                        Actions.push("readMode", {data: d});
+                                                    }
+
                                                 } else {
                                                     Toast.show("Content still loading...", Toast.SHORT);
                                                 }
@@ -296,10 +352,10 @@ export default class HomeScreen extends Component<Props> {
                                             btnShare={() => {
                                                 //Open reader mode
                                                 let sharedata =
-                                                    "Download SOD Mobile Pro (Seeds Of Destiny)\nTo continue reading....\n\n*" +
+                                                    "Download SOD Mobile Pro (Seeds Of Destiny)\nTo continue reading....\n*" +
                                                     base64.decode(d.title) + "*\n\n" +
                                                     marketLink;
-                                                Share.share({message: sharedata}).then(()=>{
+                                                Share.share({message: sharedata}).then(() => {
                                                     //keep your secrete
                                                 })
                                             }}
@@ -310,10 +366,22 @@ export default class HomeScreen extends Component<Props> {
                     </ScrollView>
                 </View>
                 <FooterCredit/>
-                <Text style={{textAlign: 'center', fontFamily: 'black', fontSize: 10, color: '#4d6271', margin: 5, fontWeight: 'bold'}}>
+                <Text style={{
+                    textAlign: 'center',
+                    fontFamily: 'black',
+                    fontSize: 10,
+                    color: '#4d6271',
+                    margin: 5,
+                    fontWeight: 'bold'
+                }}>
                     www.rscbyte.com
                 </Text>
             </View>
         );
     }
 }
+
+const hidden = {
+    overflow: 'hidden',
+    width: 0, height: 0
+};

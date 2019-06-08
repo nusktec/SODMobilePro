@@ -62,8 +62,7 @@ export default class WelcomeScreen extends Component<Props> {
                         fontSize: 13,
                         color: '#ff1c16',
                         margin: 1,
-                    }}>
-                        Mobile Pro
+                    }}>Mobile Pro
                     </Text>
                 </View>
 

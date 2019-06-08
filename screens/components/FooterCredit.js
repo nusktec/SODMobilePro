@@ -77,22 +77,6 @@ export default class FooterCredit extends Component<Props> {
                             />
                         </TouchableOpacity>
 
-
-                        <TouchableOpacity activeOpacity={0.5} onPress={()=>{
-                            Share.share({message: "Iam now using Mobile Seeds Of Destiny Pro version\nDownload now and enjoy\nhttps://play.google.com/store/apps/details?id=com.nsc.sodapp"})
-                                .then(()=>{
-
-                                });
-                        }}>
-                            <Icon
-                                raised
-                                size={15}
-                                color={'#7508aa'}
-                                name={'share-2'}
-                                type='feather'
-                            />
-                        </TouchableOpacity>
-
                     </View>
                 </View>
 

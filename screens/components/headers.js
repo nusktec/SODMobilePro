@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, View} from "react-native";
+import {TouchableOpacity, View, Share} from "react-native";
 import {Header, Icon, Text} from "react-native-elements";
 import * as NavigationBar from "react-native-navbar-color";
 import {BG_COLOR, COLOR1, COLOR2, Flavours, NAV_BAR, TEXT_COLOR} from "../../style/styling";
@@ -44,7 +44,7 @@ export default class Headers extends Component {
                             button={require('./../../src/img/menu.png')}
                             buttonStyle={{ width: 24, height: 24, margin: 7.5, resizeMode: "contain" }}
                             destructiveIndex={1}
-                            options={["About", "Pay Online", "Help","Reload"]}
+                            options={["About", "Pay Online", "Help","Reload", "Invite A Friend"]}
                             actions={[()=>{
                                 //About
                                 Actions.about();
@@ -54,7 +54,12 @@ export default class Headers extends Component {
                             }, ()=>{
                                 //Help
                                 OpenUrl("http://dunamisgospel.org/")
-                            }, this.props.reload ? this.props.btnReload : ()=>{}]}/>
+                            }, this.props.reload ? this.props.btnReload : ()=>{}, ()=>{
+                                Share.share({message: "Iam now using Mobile Seeds Of Destiny Pro version\nDownload now and enjoy\nhttps://play.google.com/store/apps/details?id=com.nsc.sodapp"})
+                                    .then(()=>{
+
+                                    });
+                            }]}/>
                     </TouchableOpacity>}
                     containerStyle={[{
                         paddingTop: -20,
