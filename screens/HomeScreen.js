@@ -162,13 +162,13 @@ export default class HomeScreen extends Component<Props> {
                         justifyContent: 'center',
                         backgroundColor: 'rgba(0,0,0,.6)'
                     }]}>
-                        <Text style={[{alignSelf: 'center', fontFamily: 'font2', color: BG_COLOR2, fontSize: 25}]}>
+                        <Text style={[{alignSelf: 'center', fontFamily: 'Remachine Script Personal Use', color: BG_COLOR2, fontSize: 25}]}>
                             Seeds Of Destiny
                         </Text>
                         <Text style={[{
                             marginTop: -2,
                             alignSelf: 'center',
-                            fontFamily: 'foregen',
+                            fontFamily: 'The Foregen',
                             color: BG_COLOR2,
                             fontSize: 35
                         }]}>
@@ -191,7 +191,7 @@ export default class HomeScreen extends Component<Props> {
                             <Text style={[{
                                 marginTop: 0,
                                 alignSelf: 'center',
-                                fontFamily: 'black',
+                                fontFamily: 'Black Label',
                                 color: BG_COLOR2,
                                 fontSize: 15
                             }]}>
@@ -280,7 +280,7 @@ export default class HomeScreen extends Component<Props> {
                         flexWrap: 'wrap',
                         zIndex: 0,
                         alignSelf: 'flex-start',
-                        fontFamily: 'sunday',
+                        fontFamily: 'Happy Sunday',
                         fontWeight: '800',
                         color: 'rgba(84, 100, 115, 0.51)',
                         fontSize: 13
@@ -368,7 +368,7 @@ export default class HomeScreen extends Component<Props> {
                 <FooterCredit/>
                 <Text style={{
                     textAlign: 'center',
-                    fontFamily: 'black',
+                    fontFamily: 'Black Label',
                     fontSize: 10,
                     color: '#4d6271',
                     margin: 5,

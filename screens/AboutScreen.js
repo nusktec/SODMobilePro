@@ -70,7 +70,7 @@ export default class LibraryScreen extends Component<Props> {
 
                         <Text style={{
                             textAlign: 'center',
-                            fontFamily: 'black',
+                            fontFamily: 'Black Label',
                             fontSize: 18,
                             color: '#4d6271',
                             marginTop: 20,
@@ -79,7 +79,7 @@ export default class LibraryScreen extends Component<Props> {
                         </Text>
                         <Text style={{
                             textAlign: 'center',
-                            fontFamily: 'black',
+                            fontFamily: 'Black Label',
                             fontSize: 13,
                             color: '#4d6271',
                             fontWeight: 'bold',
@@ -97,7 +97,7 @@ export default class LibraryScreen extends Component<Props> {
                         </Text>
                         <Text style={{
                             textAlign: 'center',
-                            fontFamily: 'black',
+                            fontFamily: 'Black Label',
                             fontSize: 13,
                             color: '#4d6271',
                             fontWeight: 'bold',

@@ -36,7 +36,7 @@ export default class FooterCredit extends Component<Props> {
             <View style={StyleSplash.container}>
                 <View style={{height: 50, width: windowWidth , marginBottom: 5}}>
 
-                    <Text style={{textAlign: 'center', fontFamily: 'black', fontSize: 10, color: '#4d6271', marginTop: 5}}>
+                    <Text style={{textAlign: 'center', fontFamily: 'Black Label', fontSize: 10, color: '#4d6271', marginTop: 5}}>
                         Social Connects
                     </Text>
 

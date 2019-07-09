@@ -20,10 +20,10 @@ export default class cardSeeds extends Component<props>{
                         } />
 
                         <View style={{flexDirection: 'column', height: 180, width: 110, padding: 6, backgroundColor: 'rgba(0,0,0,.3)'}}>
-                            <Text style={[{fontSize: 30, color: BG_COLOR, fontFamily: 'Black', marginTop: -5, marginLeft: 5}, shadow.txtSh]}>
+                            <Text style={[{fontSize: 30, color: BG_COLOR, fontFamily: 'Black Label', marginTop: -5, marginLeft: 5}, shadow.txtSh]}>
                                 {this.props.sday ? this.props.sday : 0}
                             </Text>
-                            <Text style={[{fontSize: 12, color: BG_COLOR, fontFamily: 'Black', marginTop: -5, marginLeft: 5, marginBottom: 10, fontWeight: '400'}, shadow.txtSh]}>
+                            <Text style={[{fontSize: 12, color: BG_COLOR, fontFamily: 'Black Label', marginTop: -5, marginLeft: 5, marginBottom: 10, fontWeight: '400'}, shadow.txtSh]}>
                                 {this.props.sdate ? this.props.sdate : 'Please wait'}
                             </Text>
                             <Text style={[{flex: 1, justifyContent: 'center', textTransform: 'capitalize', fontSize: 17, color: BG_COLOR, fontFamily: 'Baloo', marginTop: -5, marginLeft: 5}, shadow.txtSh]}>

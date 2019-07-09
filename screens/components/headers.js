@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, View, Share} from "react-native";
+import {TouchableOpacity, View, Share, Platform} from "react-native";
 import {Header, Icon, Text} from "react-native-elements";
 import * as NavigationBar from "react-native-navbar-color";
 import {BG_COLOR, COLOR1, COLOR2, Flavours, NAV_BAR, TEXT_COLOR} from "../../style/styling";
@@ -34,7 +34,7 @@ export default class Headers extends Component {
                     placement="left"
                     centerComponent={
                         <View style={{alignItems: 'center'}}>
-                            <Text style={{ color: TEXT_COLOR , fontFamily: 'dina', fontSize: 28}}>
+                            <Text style={{ color: TEXT_COLOR , fontFamily: 'Hello Dina Script', fontSize: 28}}>
                                 {this.props.title ? this.props.title : 'Sod Mobile'}
                             </Text>
                         </View>
@@ -62,6 +62,7 @@ export default class Headers extends Component {
                             }]}/>
                     </TouchableOpacity>}
                     containerStyle={[{
+                        marginTop: Platform.OS==='ios' ? 20 : 0,
                         paddingTop: -20,
                         height: 60,
                         backgroundColor: BG_COLOR,

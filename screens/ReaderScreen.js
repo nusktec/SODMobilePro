@@ -98,10 +98,10 @@ export default class ReaderScreen extends Component<Props> {
                         borderBottomWidth: 0,
                     }, Flavours2.shadow(1)]}>
                         <View style={{flex: 2}}>
-                            <Text style={[{fontSize: 18, color: TEXT_COLOR, fontFamily: 'Black', fontWeight: 'bold'}]}>
+                            <Text style={[{fontSize: 18, color: TEXT_COLOR, fontFamily: 'Black Label', fontWeight: 'bold'}]}>
                                 {this.state.title}
                             </Text>
-                            <Text style={[{fontSize: 13, color: TEXT_COLOR, fontFamily: 'Black', fontStyle: 'italic'}]}>
+                            <Text style={[{fontSize: 13, color: TEXT_COLOR, fontFamily: 'Black Label', fontStyle: 'italic'}]}>
                                 {this.state.date}
                             </Text>
                         </View>
@@ -180,7 +180,7 @@ export default class ReaderScreen extends Component<Props> {
                                   fontWeight: '800',
                                   lineHeight: 30,
                                   color: '#000',
-                                  fontFamily: 'express'
+                                  fontFamily: 'Expressway'
                               }}/>
 
                         <HTML containerStyle={[{paddingLeft: 10, paddingRight: 10}]} html={this.state.body2}

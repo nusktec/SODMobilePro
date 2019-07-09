@@ -44,14 +44,16 @@ export default class LibraryScreen extends Component<Props> {
                                 Actions.pop();
                             }else {
                                 //show toast
+                                Actions.pop();
                             }
                         }} icon={'arrow-left'} title={'Now Playing'}/>
                     </View>
 
                     <View>
                         <YouTube
+                            origin={'iOS'}
                             controls={2}
-                            apiKey=''
+                            apiKey='AIzaSyDkVP3ddux3_W1_QyzCXzpD66oreimkG1A'
                             playlistId={'UUrDg-KgwTtv88H32I4KEZcw'}   // The YouTube video ID
                             play={true}
                             loop={false}            // control whether the video should loop when ended
@@ -64,7 +66,7 @@ export default class LibraryScreen extends Component<Props> {
                     </View>
 
                     <View>
-                        <Text style={{textAlign: 'center', fontSize: 25, fontFamily: 'black', color: 'black', margin: 10}}>
+                        <Text style={{textAlign: 'center', fontSize: 25, fontFamily: 'Black Label', color: 'black', margin: 10}}>
                             Social Connects
                         </Text>
                     </View>
