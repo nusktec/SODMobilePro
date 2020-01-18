@@ -1,11 +1,8 @@
-import React, {Component} from 'react';
-import {TouchableOpacity, View, Share, Platform} from "react-native";
-import {Header, Icon, Text} from "react-native-elements";
+import React, {Component} from "react";
+import {TouchableOpacity} from "react-native";
+import {Header, Icon} from "react-native-elements";
 import * as NavigationBar from "react-native-navbar-color";
-import {BG_COLOR, COLOR1, COLOR2, Flavours, NAV_BAR, TEXT_COLOR} from "../../style/styling";
-import OptionsMenu from 'react-native-options-menu';
-import {OpenUrl} from "./common";
-import {Actions} from 'react-native-router-flux';
+import {NAV_BAR} from "../../style/styling";
 
 
 //Create a dedicated class that will manage the tabBar icon
@@ -16,7 +13,7 @@ export default class Headers extends Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
 
     }
 
@@ -25,51 +22,24 @@ export default class Headers extends Component {
         NavigationBar.setStatusBarColor(NAV_BAR, true);
         NavigationBar.setStatusBarTheme('dark', true);
         return (
-            <View style={[]}>
-                <Header
-                    barStyle={'dark-content'}
-                    leftComponent={<TouchableOpacity onPress={this.props.homeKey}>
-                        <Icon type='feather' color={TEXT_COLOR} name={this.props.icon ? this.props.icon : "monitor"} size={24}/>
-                    </TouchableOpacity>}
-                    placement="left"
-                    centerComponent={
-                        <View style={{alignItems: 'center'}}>
-                            <Text style={{ color: TEXT_COLOR , fontFamily: 'Hello Dina Script', fontSize: 28}}>
-                                {this.props.title ? this.props.title : 'Sod Mobile'}
-                            </Text>
-                        </View>
-                    }
-                    rightComponent={this.props.noMenu ? null : <TouchableOpacity>
-                        <OptionsMenu
-                            button={require('./../../src/img/menu.png')}
-                            buttonStyle={{ width: 24, height: 24, margin: 7.5, resizeMode: "contain" }}
-                            destructiveIndex={1}
-                            options={["About", "Pay Online", "Help","Reload", "Invite A Friend"]}
-                            actions={[()=>{
-                                //About
-                                Actions.about();
-                            }, ()=>{
-                                //Pay online
-                                OpenUrl("http://dunamisgospel.org/pay")
-                            }, ()=>{
-                                //Help
-                                OpenUrl("http://dunamisgospel.org/")
-                            }, this.props.reload ? this.props.btnReload : ()=>{}, ()=>{
-                                Share.share({message: "Iam now using Mobile Seeds Of Destiny Pro version\nDownload now and enjoy\nhttps://play.google.com/store/apps/details?id=com.nsc.sodapp"})
-                                    .then(()=>{
-
-                                    });
-                            }]}/>
-                    </TouchableOpacity>}
-                    containerStyle={[{
-                        marginTop: Platform.OS==='ios' ? 20 : 0,
-                        paddingTop: -20,
-                        height: 60,
-                        backgroundColor: BG_COLOR,
-                        justifyContent: 'space-around',
-                    }, Flavours.shadow]}
-                />
-            </View>
+            <Header
+                statusBarProps={{barStyle: 'light-content'}}
+                barStyle="light-content" // or directly
+                leftComponent={
+                    <TouchableOpacity onPress={() => {
+                        this.props.homeKey();
+                    }}>
+                        <Icon type={'feather'} name="arrow-left" size={24} color="#4d6271"/>
+                    </TouchableOpacity>
+                }
+                centerComponent={{text: this.props.title, style: {color: '#4d6271', fontWeight: 'bold', fontSize: 24}}}
+                containerStyle={{
+                    backgroundColor: '#fff',
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    height: 70,
+                }}
+            />
         );
     }
 }

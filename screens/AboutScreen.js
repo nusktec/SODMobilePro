@@ -29,7 +29,7 @@ export default class LibraryScreen extends Component<Props> {
             <View style={StyleSplash.container}>
                 <View style={StyleSplash.container}>
                     <View style={[]}>
-                        <Headers icon={'arrow-left'} noMenu={true} title={'About App'} homeKey={() => {
+                        <Headers icon={'arrow-left'} title={'About App'} homeKey={() => {
                             Actions.pop();
                         }}/>
                     </View>
@@ -37,16 +37,8 @@ export default class LibraryScreen extends Component<Props> {
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                         <View style={{justifyContent: 'center', alignItems: 'center'}}>
                             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <Image source={require('./../src/img/planet_favi.png')}
-                                       style={{width: 80, height: 80, resizeMode: 'contain'}}/>
-                                <Icon
-                                    color={'#d9d9d9'}
-                                    size={30}
-                                    type={'feather'}
-                                    name={'arrow-right'}
-                                />
-                                <Image source={require('./../src/img/ic_launcher.png')}
-                                       style={{width: 80, height: 80, resizeMode: 'contain'}}/>
+                                <Image source={require('./../src/img/rdx_tag.png')}
+                                       style={{width: 100, height: 100, resizeMode: 'contain'}}/>
                             </View>
                         </View>
 
@@ -65,7 +57,7 @@ export default class LibraryScreen extends Component<Props> {
                             color: '#ff1c16',
                             margin: 1,
                         }}>
-                            Mobile Pro
+                            Mobile Application
                         </Text>
 
                         <Text style={{
@@ -85,7 +77,7 @@ export default class LibraryScreen extends Component<Props> {
                             fontWeight: 'bold',
                             marginTop: 13,
                         }}>
-                            RSC Byte() Technology
+                            Reedax Technology
                         </Text>
                         <Text style={{
                             textAlign: 'center',
@@ -93,24 +85,13 @@ export default class LibraryScreen extends Component<Props> {
                             color: '#4d6271',
                             marginTop: 2,
                         }}>
-                            234 8164242320 | info@rscbyte.com
+                            234 8164242320 | info@reedax.com
                         </Text>
-                        <Text style={{
-                            textAlign: 'center',
-                            fontFamily: 'Black Label',
-                            fontSize: 13,
-                            color: '#4d6271',
-                            fontWeight: 'bold',
-                            marginTop: 10,
-                        }}>
-                            www.rscbyte.com
-                        </Text>
-
 
                         <Button
                             onPress={() => {
                                 //Open company web
-                                OpenUrl("http://rscbyte.com");
+                                OpenUrl("http://reedax.com");
                             }}
                             type={'outline'}
                             buttonStyle={{

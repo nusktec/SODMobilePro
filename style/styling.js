@@ -23,7 +23,6 @@ export const StyleSplash = {
     footerCredit: {
         fontSize: 13,
         textAlign: 'center',
-        color: '#bbc2c4',
         marginBottom: 5,
         fontFamily: 'Baloo'
     },
