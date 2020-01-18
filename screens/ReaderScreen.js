@@ -98,10 +98,10 @@ export default class ReaderScreen extends Component<Props> {
                         borderBottomWidth: 0,
                     }, Flavours2.shadow(1)]}>
                         <View style={{flex: 2}}>
-                            <Text style={[{fontSize: 18, color: TEXT_COLOR, fontFamily: 'Black Label', fontWeight: 'bold'}]}>
+                            <Text style={[{fontSize: 24, color: TEXT_COLOR, fontFamily: 'Black Label', fontWeight: 'bold'}]}>
                                 {this.state.title}
                             </Text>
-                            <Text style={[{fontSize: 13, color: TEXT_COLOR, fontFamily: 'Black Label', fontStyle: 'italic'}]}>
+                            <Text style={[{fontSize: 15, color: TEXT_COLOR, fontFamily: 'Black Label', fontStyle: 'italic'}]}>
                                 {this.state.date}
                             </Text>
                         </View>
@@ -175,7 +175,7 @@ export default class ReaderScreen extends Component<Props> {
                         <HTML containerStyle={[{paddingLeft: 10, paddingRight: 10}]} html={this.state.body1}
                               baseFontStyle={{
                                   textAlign: 'justify',
-                                  fontSize: 15,
+                                  fontSize: 25,
                                   fontStyle: 'italic',
                                   fontWeight: '800',
                                   lineHeight: 30,
@@ -186,9 +186,9 @@ export default class ReaderScreen extends Component<Props> {
                         <HTML containerStyle={[{paddingLeft: 10, paddingRight: 10}]} html={this.state.body2}
                               baseFontStyle={{
                                   textAlign: 'justify',
-                                  fontSize: 18,
+                                  fontSize: 20,
                                   fontWeight: 'bold',
-                                  lineHeight: 30,
+                                  lineHeight: 32,
                                   color: TEXT_COLOR,
                                   fontFamily: 'Arial'
                               }}/>
