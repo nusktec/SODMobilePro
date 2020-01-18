@@ -11,6 +11,7 @@ import {Text, View, Dimensions} from 'react-native';
 import {StyleSplash} from './../style/styling';
 import {Image} from "react-native-elements";
 import {Actions} from 'react-native-router-flux';
+import Headers from "./components/headers";
 
 export default class WelcomeScreen extends Component<Props> {
 
@@ -24,7 +25,7 @@ export default class WelcomeScreen extends Component<Props> {
 
         //check if logged in to go to home
         setTimeout(() => {
-            //Actions.replace('dashboard');
+            Actions.replace('dashboard');
             // (async()=>{
             //     try {
             //         const value = await AsyncStorage.getItem(TEMP_ACC);
@@ -46,8 +47,16 @@ export default class WelcomeScreen extends Component<Props> {
     render() {
         return (
             <View style={StyleSplash.container}>
-                <Image source={require('./../src/img/bg_yellow_min.jpg')}
-                       style={{width: Dimensions.get('window').width, resizeMode: 'stretch', opacity: 0.1}}/>
+                <View style={{
+                    width: Dimensions.get('window').width,
+                    height: Dimensions.get('window').height - 50,
+                    backgroundColor: '#000',
+                    overflow: 'hidden',
+                    borderBottomStartRadius: 50
+                }}>
+                    <Image source={require('./../src/img/bg_yellow_min.jpg')}
+                           style={{width: Dimensions.get('window').width, resizeMode: 'stretch'}}/>
+                </View>
                 <View style={[StyleSplash.view1, {
                     position: 'absolute',
                     top: 0,
@@ -60,7 +69,7 @@ export default class WelcomeScreen extends Component<Props> {
                     <Text style={{
                         textAlign: 'center',
                         fontSize: 28,
-                        color: '#4d6271',
+                        color: '#030306',
                         margin: 1,
                         fontWeight: 'bold'
                     }}>

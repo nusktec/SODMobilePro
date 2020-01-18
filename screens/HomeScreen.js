@@ -285,7 +285,7 @@ export default class HomeScreen extends Component<Props> {
                                     color: BG_COLOR2,
                                     fontSize: 15
                                 }]}>
-                                    {this.state.topCard.month + "." + this.state.topCard.year}
+                                    {this.state.topCard.month + " " + this.state.topCard.year}
                                 </Text>
                             </View>
                         </View>
@@ -393,7 +393,7 @@ export default class HomeScreen extends Component<Props> {
                                     <ListItem
                                         key={k}
                                         leftAvatar={{source: {uri: base64.decode(d.image)}}}
-                                        title={'Day ' + getMonthLetter(parseInt(base64.decode(d.created).split(" ")[0].split("-")[1])) + " " + base64.decode(d.created).split(" ")[0].split("-")[0]}
+                                        title={'Day ' + base64.decode(d.created).split(" ")[0].split("-")[2] + getMonthLetter(parseInt(base64.decode(d.created).split(" ")[0].split("-")[1])) + " " + base64.decode(d.created).split(" ")[0].split("-")[0]}
                                         subtitle={base64.decode(d.title)}
                                         bottomDivider
                                         chevron={true}

@@ -35,12 +35,6 @@ export default class LibraryScreen extends Component<Props> {
                     </View>
 
                     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <Image source={require('./../src/img/rdx_tag.png')}
-                                       style={{width: 100, height: 100, resizeMode: 'contain'}}/>
-                            </View>
-                        </View>
 
                         <Text style={{
                             textAlign: 'center',
@@ -69,6 +63,14 @@ export default class LibraryScreen extends Component<Props> {
                         }}>
                             uDesigned By:
                         </Text>
+
+                        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                <Image source={require('./../src/img/rdx_tag_2.png')}
+                                       style={{width: 120, height: 50, resizeMode: 'contain'}}/>
+                            </View>
+                        </View>
+
                         <Text style={{
                             textAlign: 'center',
                             fontFamily: 'Black Label',
