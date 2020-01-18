@@ -51,7 +51,7 @@ export default class cardSeeds extends Component<props> {
                                 textTransform: 'capitalize',
                                 fontSize: 17,
                                 color: BG_COLOR,
-                                fontFamily: 'Baloo',
+                                fontFamily: 'Poppins',
                                 marginTop: 5,
                                 marginLeft: 5
                             }, shadow.txtSh]}>
@@ -60,7 +60,7 @@ export default class cardSeeds extends Component<props> {
                             <Text style={[{
                                 fontSize: 12,
                                 color: BG_COLOR,
-                                fontFamily: 'Black Label',
+                                fontFamily: 'Poppins',
                                 marginTop: -5,
                                 marginLeft: 5,
                                 marginBottom: 10,

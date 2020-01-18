@@ -244,7 +244,7 @@ export default class HomeScreen extends Component<Props> {
                         }]}>
                             <Text style={[{
                                 alignSelf: 'center',
-                                fontFamily: 'Remachine Script Personal Use',
+                                fontFamily: 'Poppins',
                                 color: BG_COLOR2,
                                 fontSize: 25
                             }]}>
@@ -253,7 +253,7 @@ export default class HomeScreen extends Component<Props> {
                             <Text style={[{
                                 marginTop: -2,
                                 alignSelf: 'center',
-                                fontFamily: 'The Foregen',
+                                fontFamily: 'Poppins',
                                 color: BG_COLOR2,
                                 fontSize: 35
                             }]}>
@@ -262,7 +262,7 @@ export default class HomeScreen extends Component<Props> {
                             <View style={{justifyContent: 'center', alignItems: 'center'}}>
                                 <Text style={[{
                                     alignSelf: 'center',
-                                    fontFamily: 'Baloo',
+                                    fontFamily: 'Poppins',
                                     color: BG_COLOR2,
                                     fontSize: 20
                                 }]}>
@@ -270,7 +270,7 @@ export default class HomeScreen extends Component<Props> {
                                 </Text>
                                 <Text style={[{
                                     alignSelf: 'center',
-                                    fontFamily: 'Baloo',
+                                    fontFamily: 'Poppins',
                                     color: BG_COLOR2,
                                     fontSize: 20,
                                     paddingRight: 20,
@@ -281,7 +281,7 @@ export default class HomeScreen extends Component<Props> {
                                 <Text style={[{
                                     marginTop: 0,
                                     alignSelf: 'center',
-                                    fontFamily: 'Black Label',
+                                    fontFamily: 'Poppins',
                                     color: BG_COLOR2,
                                     fontSize: 15
                                 }]}>
@@ -312,7 +312,7 @@ export default class HomeScreen extends Component<Props> {
                             flexWrap: 'wrap',
                             zIndex: 0,
                             alignSelf: 'flex-start',
-                            fontFamily: 'Happy Sunday',
+                            fontFamily: 'Poppins',
                             fontWeight: '800',
                             color: 'rgba(84, 100, 115, 0.51)',
                             fontSize: 13
@@ -370,7 +370,7 @@ export default class HomeScreen extends Component<Props> {
                             flexWrap: 'wrap',
                             zIndex: 0,
                             alignSelf: 'flex-start',
-                            fontFamily: 'Happy Sunday',
+                            fontFamily: 'Poppins',
                             fontWeight: '800',
                             color: 'rgba(84, 100, 115, 0.51)',
                             fontSize: 13
@@ -386,18 +386,19 @@ export default class HomeScreen extends Component<Props> {
                     </View>
 
                     <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}
-                                style={{marginTop: 10}}>
+                                style={{marginTop: 20}}>
                         <View style={{flex: 1}}>
                             {
                                 this.state.sd.map((d, k) => (
                                     <ListItem
                                         key={k}
                                         leftAvatar={{source: {uri: base64.decode(d.image)}}}
-                                        title={'Day ' + base64.decode(d.created).split(" ")[0].split("-")[2] + getMonthLetter(parseInt(base64.decode(d.created).split(" ")[0].split("-")[1])) + " " + base64.decode(d.created).split(" ")[0].split("-")[0]}
+                                        title={'Day ' + base64.decode(d.created).split(" ")[0].split("-")[2] + ", " + getMonthLetter(parseInt(base64.decode(d.created).split(" ")[0].split("-")[1])) + " " + base64.decode(d.created).split(" ")[0].split("-")[0]}
                                         subtitle={base64.decode(d.title)}
                                         bottomDivider
                                         chevron={true}
-                                        titleStyle={{fontWeight: 'bold'}}
+                                        titleStyle={{fontWeight: 'bold', fontFamily: 'Poppins'}}
+                                        subtitleStyle={{fontWeight: 'bold', fontSize: 15}}
                                         onPress={() => {
                                             this.readSOD(d);
                                         }}
@@ -417,8 +418,8 @@ export default class HomeScreen extends Component<Props> {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <ActivityIndicator size="large" color="#0000ff"/>
-                    <Text style={{fontSize: 20, fontWeight: 'bold', margin: 10}}>Loading seeds</Text>
+                    <ActivityIndicator size="large" color="#000"/>
+                    <Text style={{fontSize: 20, fontWeight: 'bold', margin: 10, color: '#000'}}>Loading seeds</Text>
                     <Text style={{
                         fontSize: 15,
                         margin: 10,

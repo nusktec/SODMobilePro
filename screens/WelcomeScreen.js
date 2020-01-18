@@ -25,7 +25,7 @@ export default class WelcomeScreen extends Component<Props> {
 
         //check if logged in to go to home
         setTimeout(() => {
-            Actions.replace('dashboard');
+            //Actions.replace('dashboard');
             // (async()=>{
             //     try {
             //         const value = await AsyncStorage.getItem(TEMP_ACC);
@@ -49,10 +49,10 @@ export default class WelcomeScreen extends Component<Props> {
             <View style={StyleSplash.container}>
                 <View style={{
                     width: Dimensions.get('window').width,
-                    height: Dimensions.get('window').height - 50,
+                    height: Dimensions.get('window').height - 0,
                     backgroundColor: '#000',
                     overflow: 'hidden',
-                    borderBottomStartRadius: 50
+                    borderBottomStartRadius: 0
                 }}>
                     <Image source={require('./../src/img/bg_yellow_min.jpg')}
                            style={{width: Dimensions.get('window').width, resizeMode: 'stretch'}}/>
@@ -71,7 +71,8 @@ export default class WelcomeScreen extends Component<Props> {
                         fontSize: 28,
                         color: '#030306',
                         margin: 1,
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        fontFamily: 'Poppins'
                     }}>
                         Seeds Of Destiny
                     </Text>
@@ -91,8 +92,10 @@ export default class WelcomeScreen extends Component<Props> {
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}>
-                    <Image style={{width: 80, height: 50, resizeMode: 'contain'}}
-                           source={require('./../src/img/rdx_tag_2.png') }/>
+                    <View style={{borderTopLeftRadius: 20, borderTopEndRadius: 20, backgroundColor: '#fff'}}>
+                        <Image style={{width: 60, height: 50, resizeMode: 'contain'}}
+                               source={require('./../src/img/rdx_tag_2.png') }/>
+                    </View>
                 </View>
 
             </View>

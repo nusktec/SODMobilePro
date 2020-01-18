@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -46,6 +47,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* SODMobileProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SODMobileProTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		3002C2F1F0B8465D823E27F9 /* poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEEF1F0E0660456EAFADC304 /* poppins.ttf */; };
 		3775565DB24E46CEBEB05C94 /* holen.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA5F96B1CF214DB485E0C25A /* holen.otf */; };
 		434B9D69A1F048DBBF48EB72 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9CA02A4B9004C4AAF82E8CD /* Fontisto.ttf */; };
 		43F7F7FFCA8D4E0BA02360AE /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A64E5D72F94206B725349E /* MaterialCommunityIcons.ttf */; };
@@ -449,6 +451,7 @@
 		AA5F96B1CF214DB485E0C25A /* holen.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = holen.otf; path = ../src/fonts/holen.otf; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ADC44885A5504E6FBE4F5802 /* font2.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = font2.ttf; path = ../src/fonts/font2.ttf; sourceTree = "<group>"; };
+		AEEF1F0E0660456EAFADC304 /* poppins.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = poppins.ttf; path = ../src/fonts/poppins.ttf; sourceTree = "<group>"; };
 		B243DB75D8A9447992C4461D /* libRCTYouTube.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTYouTube.a; sourceTree = "<group>"; };
 		B80DBB3A435E47739A4BFA7D /* signature.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = signature.ttf; path = ../src/fonts/signature.ttf; sourceTree = "<group>"; };
 		C18B85135A794620A80598BA /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -617,6 +620,7 @@
 				71BD4AF6B4664D619C98D940 /* SimpleLineIcons.ttf */,
 				6FB94C1FD7E443D9AC35444A /* Zocial.ttf */,
 				F9CA02A4B9004C4AAF82E8CD /* Fontisto.ttf */,
+				AEEF1F0E0660456EAFADC304 /* poppins.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1361,6 +1365,7 @@
 				10AB2DD667D04E8F8A727E02 /* SimpleLineIcons.ttf in Resources */,
 				83F17751842C45FF95C847C6 /* Zocial.ttf in Resources */,
 				434B9D69A1F048DBBF48EB72 /* Fontisto.ttf in Resources */,
+				3002C2F1F0B8465D823E27F9 /* poppins.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1567,7 +1572,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rscbyte.SODMobilePro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rscbyte.SODMobile;
 				PRODUCT_NAME = SODMobilePro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1593,7 +1598,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rscbyte.SODMobilePro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rscbyte.SODMobile;
 				PRODUCT_NAME = SODMobilePro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
