@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {TouchableOpacity, View, Dimensions} from "react-native";
 import {Icon, Text} from "react-native-elements";
 import * as NavigationBar from "react-native-navbar-color";
-import {NAV_BAR} from "../../style/styling";
+import {BG_COLOR2, NAV_BAR} from "../../style/styling";
 //Create a dedicated class that will manage the tabBar icon
 export default class Headers extends Component {
 
@@ -23,16 +23,16 @@ export default class Headers extends Component {
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                backgroundColor: '#fff',
+                backgroundColor: BG_COLOR2,
                 width: Dimensions.get('window').width,
                 padding: 10,
             }}>
-                <TouchableOpacity onPress={() => {
+                <TouchableOpacity style={{padding: 10}} onPress={() => {
                     this.props.homeKey();
                 }}>
                     <Icon type={'feather'} name="arrow-left" size={24} color="#4d6271"/>
                 </TouchableOpacity>
-                <Text style={{fontWeight: 'bold', fontSize: 20, marginEnd: 10}}>{this.props.title}</Text>
+                <Text style={{fontWeight: 'bold', fontSize: 20, marginEnd: 10, padding: 10}}>{this.props.title}</Text>
             </View>
         );
     }

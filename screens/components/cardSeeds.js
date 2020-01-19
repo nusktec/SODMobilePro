@@ -17,7 +17,7 @@ export default class cardSeeds extends Component<props> {
                                   onPress={this.props.btnClick}>
                     <View style={[{
                         overflow: 'hidden',
-                        borderWidth: 1,
+                        borderWidth: 0,
                         borderColor: '#fff',
                         flexDirection: 'column',
                         backgroundColor: '#fff',

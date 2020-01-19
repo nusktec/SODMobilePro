@@ -103,7 +103,7 @@ export default class HomeScreen extends Component<Props> {
                 this.filterToday();
                 render(); //call render method
             }).catch(err => {
-            console.log(err)
+            //console.log(err)
         })
     };
 
@@ -116,7 +116,7 @@ export default class HomeScreen extends Component<Props> {
                     topImage: obj.image
                 });
             }).catch(err => {
-            console.log(err)
+            //console.log(err)
         })
     };
 
@@ -274,7 +274,8 @@ export default class HomeScreen extends Component<Props> {
                                     color: BG_COLOR2,
                                     fontSize: 20,
                                     paddingRight: 20,
-                                    paddingLeft: 20
+                                    paddingLeft: 20,
+                                    fontWeight: 'bold',
                                 }]}>
                                     {this.state.topCard.title}
                                 </Text>
@@ -283,7 +284,7 @@ export default class HomeScreen extends Component<Props> {
                                     alignSelf: 'center',
                                     fontFamily: 'Poppins',
                                     color: BG_COLOR2,
-                                    fontSize: 15
+                                    fontSize: 15,
                                 }]}>
                                     {this.state.topCard.month + " " + this.state.topCard.year}
                                 </Text>
@@ -298,7 +299,6 @@ export default class HomeScreen extends Component<Props> {
                             color: '#fff'
                         }]}>No Internet Connections !</Text>
                     </View>
-
 
                     <View style={{
                         flexWrap: 'wrap',
@@ -328,8 +328,6 @@ export default class HomeScreen extends Component<Props> {
                                 //img, sday, sdate, stitle, btnShare, btnClick
                                 this.state.sd.map(
                                     (d, k) => {
-                                        //Date filtering here
-
                                         //end of data filtering
                                         return (
                                             <SEED_CARD
@@ -398,7 +396,7 @@ export default class HomeScreen extends Component<Props> {
                                         bottomDivider
                                         chevron={true}
                                         titleStyle={{fontWeight: 'bold', fontFamily: 'Poppins'}}
-                                        subtitleStyle={{fontWeight: 'bold', fontSize: 15}}
+                                        subtitleStyle={{fontSize: 15}}
                                         onPress={() => {
                                             this.readSOD(d);
                                         }}

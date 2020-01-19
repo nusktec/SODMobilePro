@@ -25,7 +25,7 @@ export default class WelcomeScreen extends Component<Props> {
 
         //check if logged in to go to home
         setTimeout(() => {
-            //Actions.replace('dashboard');
+            Actions.replace('dashboard');
             // (async()=>{
             //     try {
             //         const value = await AsyncStorage.getItem(TEMP_ACC);
