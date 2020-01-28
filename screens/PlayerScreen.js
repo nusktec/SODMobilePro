@@ -49,7 +49,6 @@ export default class LibraryScreen extends Component<Props> {
                         }} icon={'arrow-left'} title={'Now Playing'}/>
                     </View>
 
-
                         {
                             Platform.select({
                                 ios: <WebView  controls={true} fullscreen={false} style={{flex: 1, height: 250}} source={{html: '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=UUrDg-KgwTtv88H32I4KEZcw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'}}/>,
