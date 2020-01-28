@@ -3,6 +3,8 @@ package com.rscbyte.sodmobilepro;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
+import com.brentvatne.react.ReactVideoPackage;
 import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.thebylito.navigationbarcolor.NavigationBarColorPackage;
@@ -28,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNCWebViewPackage(),
+            new ReactVideoPackage(),
             new ReactNativeYouTube(),
             new VectorIconsPackage(),
             new NavigationBarColorPackage(),

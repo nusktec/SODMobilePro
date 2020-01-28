@@ -8,19 +8,25 @@
 
 import React, {Component} from "react";
 import {
-    ActivityIndicator, Alert, AlertIOS, BackHandler, Dimensions, NetInfo, ScrollView, Share,
+    ActivityIndicator,
+    Alert,
+    BackHandler,
+    Dimensions,
+    NetInfo,
+    ScrollView,
+    Share,
+    TouchableOpacity,
     View
 } from "react-native";
 import {StyleSplash} from "./../style/styling";
-import axios from "axios";
 import {Icon, Image, ListItem, Text} from "react-native-elements";
 import base64 from "react-native-base64";
-import {BG_COLOR2} from "../style/styling";
+import {BG_COLOR, BG_COLOR2, Flavours2} from "../style/styling";
 import {getMonthLetter, marketLink, OpenUrl} from "./components/common";
 import {Actions} from "react-native-router-flux";
 import SEED_CARD from "./components/cardSeeds";
 import Toast from "react-native-simple-toast";
-import OptionsMenu from 'react-native-options-menu';
+import OptionsMenu from "react-native-options-menu";
 
 const BASE_URL = "http://dunamisgospel.org/api/sod/read.php?cmd=all";
 const BASE_URL_ASSET = "http://dunamisgospel.org/api/sod/assets.php"; //param 'direct==true to redirect image
@@ -61,7 +67,6 @@ export default class HomeScreen extends Component<Props> {
                 this.main();
             }
         );
-
     }
 
     main = () => {
@@ -85,39 +90,59 @@ export default class HomeScreen extends Component<Props> {
 
             });
         } catch (e) {
-            Toast.show("Something went wrong, please try again...")
+            Toast.show("Something went wrong, could be data exhausted. please try again...")
         }
         //check internet
     }
 
     //load today seeds
-    loadSOD = () => {
-        axios.get(BASE_URL)
-            .then(resp => {
-                let obj = resp.data;
+    loadSOD = async () => {
+        await fetch(BASE_URL)
+            .then(res => res.json())
+            .then(resJson => {
+                let obj = resJson;
                 this.setState({
                     sd: obj.previous,
                     st: obj.today,
                     loaded: true,
                 });
                 this.filterToday();
-                render(); //call render method
-            }).catch(err => {
-            //console.log(err)
-        })
+                //render(); //call render method
+            })
+            .catch(err => {
+                console.log(err.message);
+                Toast.show("Something went wrong, please try again...")
+            })
+        //axios type
+        // await axios.get(BASE_URL)
+        //     .then(resp => {
+        //         let obj = resp.data;
+        //         this.setState({
+        //             sd: obj.previous,
+        //             st: obj.today,
+        //             loaded: true,
+        //         });
+        //         this.filterToday();
+        //         render(); //call render method
+        //     }).catch(err => {
+        //         //console.log(err)
+        //     })
     };
 
     //load top Image
-    fetchTopImage = () => {
-        axios.get(BASE_URL_ASSET)
-            .then(resp => {
-                let obj = resp.data;
+    fetchTopImage = async () => {
+        await fetch(BASE_URL_ASSET)
+            .then(res => res.json())
+            .then(json => {
+                //use it here
+                let obj = json;
                 this.setState({
                     topImage: obj.image
                 });
-            }).catch(err => {
-            //console.log(err)
-        })
+            })
+            .catch(err => {
+
+            })
     };
 
     //filter and arrange today's sod
@@ -243,6 +268,15 @@ export default class HomeScreen extends Component<Props> {
                             backgroundColor: 'rgba(0,0,0,.6)'
                         }]}>
                             <Text style={[{
+                                marginTop: -2,
+                                alignSelf: 'center',
+                                fontFamily: 'Poppins',
+                                color: BG_COLOR2,
+                                fontSize: 32
+                            }]}>
+                                TODAY
+                            </Text>
+                            <Text style={[{
                                 alignSelf: 'center',
                                 fontFamily: 'Poppins',
                                 color: BG_COLOR2,
@@ -250,24 +284,7 @@ export default class HomeScreen extends Component<Props> {
                             }]}>
                                 Seeds Of Destiny
                             </Text>
-                            <Text style={[{
-                                marginTop: -2,
-                                alignSelf: 'center',
-                                fontFamily: 'Poppins',
-                                color: BG_COLOR2,
-                                fontSize: 35
-                            }]}>
-                                TODAY
-                            </Text>
                             <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                                <Text style={[{
-                                    alignSelf: 'center',
-                                    fontFamily: 'Poppins',
-                                    color: BG_COLOR2,
-                                    fontSize: 20
-                                }]}>
-                                    Day {this.state.topCard.day}
-                                </Text>
                                 <Text style={[{
                                     alignSelf: 'center',
                                     fontFamily: 'Poppins',
@@ -286,7 +303,7 @@ export default class HomeScreen extends Component<Props> {
                                     color: BG_COLOR2,
                                     fontSize: 15,
                                 }]}>
-                                    {this.state.topCard.month + " " + this.state.topCard.year}
+                                    Day {this.state.topCard.day + ","} {this.state.topCard.month + " " + this.state.topCard.year}
                                 </Text>
                             </View>
                         </View>
@@ -324,6 +341,80 @@ export default class HomeScreen extends Component<Props> {
                     <View style={{marginBottom: 10}}>
                         <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}
                                     horizontal={true} style={{marginTop: 0}}>
+
+                            <TouchableOpacity style={[{margin: 5, borderRadius: 10}, Flavours2.shadow(0)]}
+                                              activeOpacity={0.8}
+                                              onPress={() => {
+                                                  Actions.playVideo()
+                                              }}>
+                                <View style={[{
+                                    overflow: 'hidden',
+                                    borderWidth: 0,
+                                    borderColor: '#fff',
+                                    flexDirection: 'column',
+                                    backgroundColor: '#fff',
+                                    height: 80,
+                                    width: 180,
+                                    borderRadius: 10,
+                                    padding: 0
+                                }]}>
+                                    <Image blurRadius={10} style={{
+                                        resizeMode: 'cover',
+                                        position: 'absolute',
+                                        height: 80,
+                                        width: 180,
+                                        top: 0,
+                                        bottom: 0,
+                                        padding: -5
+                                    }} source={require('./../src/img/card_child_pray.jpg')
+                                    }/>
+
+                                    <View style={{
+                                        flexDirection: 'column',
+                                        height: 80,
+                                        width: 180,
+                                        padding: 6,
+                                        backgroundColor: 'rgba(0,0,0,.3)'
+                                    }}>
+                                        <Text style={[{
+                                            flex: 1,
+                                            justifyContent: 'center',
+                                            textTransform: 'capitalize',
+                                            fontSize: 17,
+                                            color: BG_COLOR,
+                                            fontFamily: 'Poppins',
+                                            marginTop: 5,
+                                            marginLeft: 5
+                                        }]}>
+                                            Play Video
+                                        </Text>
+                                        <Text style={[{
+                                            fontSize: 15,
+                                            color: BG_COLOR,
+                                            fontFamily: 'Poppins',
+                                            marginTop: -5,
+                                            marginLeft: 5,
+                                            marginBottom: 10,
+                                            fontWeight: '800'
+                                        }]}>
+                                            Watch Today's Seeds of Destiny Video
+                                        </Text>
+                                        <TouchableOpacity onPress={() => {
+                                            Actions.playVideo()
+                                        }} activeOpacity={0.5}
+                                                          style={{position: 'absolute', bottom: 0, right: 0}}>
+                                            <Icon
+                                                raised
+                                                size={10}
+                                                name='play'
+                                                type='feather'
+                                                color={'black'}
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+
                             {
                                 //img, sday, sdate, stitle, btnShare, btnClick
                                 this.state.sd.map(
